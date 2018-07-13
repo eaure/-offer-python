@@ -1,0 +1,31 @@
+###原理：双端队列 单调栈结构
+# -*- coding:utf-8 -*-
+import deque
+class Solution:
+    def maxInWindows(self, num, size):
+        # write code here
+
+		if size==1:
+			return num
+		if size==0:
+			return []
+		
+		qmax=deque([])
+		qmax.append(0)
+		res=[]
+		
+		for x,y in enumerate(num[1:],1):
+			if num[qmax[-1]<=y]:
+				for i in range(len(qmax)-1,-1,-1):
+					if num[qmax[-1]] >y:
+						break
+					else
+						qmax.pop()
+			qmax.append(x)
+			
+			if qmax[0] <= x-size:
+				qmax.popleft()
+			if x >= k-1:
+				res.append(num[qmax[0]])
+		return  res
+				
