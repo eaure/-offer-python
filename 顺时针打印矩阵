@@ -1,0 +1,34 @@
+# -*- coding:utf-8 -*-
+class Solution:
+    # matrix类型为二维列表，需要返回列表
+    def printMatrix(self, matrix):
+        # write code here
+		result=[]
+		while(matrix):
+			result +=matrix.pop(0)
+			if not matrix:
+				break
+			matrix=self.turn(matrix)
+		return result
+	
+	def turn(self,matrix):
+		newmat=[]
+		row=len(matrix)
+		col=len(matrix[0])
+		for i in range(col):
+			newmat1 =[]
+			for j in range(row):
+				newmat1.append(matrix[j][i])
+			newmat.append(newmat1)
+		newmat.reverse()
+		return newmat
+		
+		
+		
+		
+		for i in range(col)
+			newmat1=[]
+			for j in range(row)
+				newmat1.append(arry[j][i])
+			newmat.append(newmat1)
+		newmat.reverse()
