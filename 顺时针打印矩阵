@@ -22,13 +22,3 @@ class Solution:
 			newmat.append(newmat1)
 		newmat.reverse()
 		return newmat
-		
-		
-		
-		
-		for i in range(col)
-			newmat1=[]
-			for j in range(row)
-				newmat1.append(arry[j][i])
-			newmat.append(newmat1)
-		newmat.reverse()
