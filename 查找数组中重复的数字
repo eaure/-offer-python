@@ -1,0 +1,42 @@
+
+
+方法一： hash表 用空间换时间
+
+ -*- coding:utf-8 -*-
+class Solution:
+    # 这里要特别注意~找到任意重复的一个值并赋值到duplication[0]
+    # 函数返回True/False
+	def duplicate(self, numbers, duplication):
+		dict = {}
+		for num in numbers:
+			if num not in dict:
+				dict[num] = 0
+			else:
+				duplication[0] = num
+				return True
+		return False
+		
+方法二：比较交换，如果没有重复,第i位就可以有数字i,去第i位
+比较这位数是不是等于i，如果不是，假设第i位是m,则和第m位交换，直到冲突就找到重复的点了
+# -*- coding:utf-8 -*-
+class Solution:
+    # 这里要特别注意~找到任意重复的一个值并赋值到duplication[0]
+    # 函数返回True/False
+    def duplicate(self, numbers, duplication):
+        # write code here
+
+		if len(numbers) <= 0 or numbers == None :
+			return False
+		for index ,value in enumerate(numbers):
+			if(index != value and value == numbers[value]):
+				duplication[0] = value
+				return True
+			if index != value:
+				numbers[index],numbers[value] = numbers[value] ,numbers[index]								
+                    
+		return False
+		
+	
+方法三：
+使用快慢指针，判断数组中是否有逻辑上的环存在。题目的返回方式需要注意。另外就是注意快慢指针的初始化方式。	
+参考链表中有环题的答案
